@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.executorMap": {
+        "java": "cd \"$workspaceRoot\" && javac src/lw01/prelab/*.java && java -cp src lw01.prelab.Main"
+    }
+}

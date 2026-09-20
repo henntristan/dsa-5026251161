@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Main (Pre-Lab 1)",
+            "request": "launch",
+            "mainClass": "lw01.prelab.Main",
+            "projectName": "dsa-5026251161"
+        }
+    ]
+}
