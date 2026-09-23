@@ -1,27 +1,29 @@
 package lw01.prelab;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("jobs.txt");
-        if (!file.exists()) {
-            file = new File("src/lw01/prelab/jobs.txt");
+        // Membaca jobs.txt menggunakan getResourceAsStream dari classpath
+        InputStream inputStream = Main.class.getResourceAsStream("jobs.txt");
+        if (inputStream == null) {
+            inputStream = Main.class.getResourceAsStream("/jobs.txt");
         }
-        if (!file.exists()) {
-            file = new File("lw01/prelab/jobs.txt");
+        if (inputStream == null) {
+            inputStream = Main.class.getClassLoader().getResourceAsStream("jobs.txt");
         }
-        if (!file.exists()) {
-            file = new File("prelab 1/jobs.txt");
+
+        if (inputStream == null) {
+            System.err.println("Error: File jobs.txt tidak ditemukan!");
+            return;
         }
 
         List<PrintJob> jobs = new ArrayList<>();
 
-        try (Scanner scanner = new Scanner(file)) {
+        try (Scanner scanner = new Scanner(inputStream)) {
             while (scanner.hasNext()) {
                 String type = scanner.next();
                 String id = scanner.next();
@@ -37,11 +39,9 @@ public class Main {
                 }
                 jobs.add(job);
             }
-        } catch (FileNotFoundException e) {
-            System.err.println("Error: File jobs.txt tidak ditemukan!");
-            return;
         }
 
+        // Loop polimorfik tunggal tanpa instanceof / casting
         for (PrintJob job : jobs) {
             System.out.println(job.summary());
         }
