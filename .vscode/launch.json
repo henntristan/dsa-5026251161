@@ -20,6 +20,13 @@
             "request": "launch",
             "mainClass": "lw01.prelab.Main",
             "projectName": "dsa-5026251161"
+        },
+        {
+            "type": "java",
+            "name": "Run Main (Pre-Lab 2)",
+            "request": "launch",
+            "mainClass": "lw02.prelab.Main",
+            "projectName": "dsa-5026251161"
         }
     ]
 }
