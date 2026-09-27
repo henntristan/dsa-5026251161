@@ -13,6 +13,6 @@
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMap": {
-        "java": "cd \"$dirWithoutTrailingSlash\" && java $fileName"
+        "java": "cd \"$workspaceRoot\" && javac src/lw02/prelab/*.java && java -cp src lw02.prelab.Main"
     }
 }
