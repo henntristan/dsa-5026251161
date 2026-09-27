@@ -3,30 +3,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Run Main (Pre-Lab 2)",
+            "request": "launch",
+            "mainClass": "lw02.prelab.Main"
+        },
+        {
+            "type": "java",
             "name": "Run Main (Unguided 1)",
             "request": "launch",
-            "mainClass": "lw01.unguided.Main",
-            "projectName": "dsa-5026251161"
+            "mainClass": "lw01.unguided.Main"
+        },
+        {
+            "type": "java",
+            "name": "Run Main (Pre-Lab 1)",
+            "request": "launch",
+            "mainClass": "lw01.prelab.Main"
         },
         {
             "type": "java",
             "name": "Run Current File",
             "request": "launch",
             "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Run Main (Pre-Lab 1)",
-            "request": "launch",
-            "mainClass": "lw01.prelab.Main",
-            "projectName": "dsa-5026251161"
-        },
-        {
-            "type": "java",
-            "name": "Run Main (Pre-Lab 2)",
-            "request": "launch",
-            "mainClass": "lw02.prelab.Main",
-            "projectName": "dsa-5026251161"
         }
     ]
 }
