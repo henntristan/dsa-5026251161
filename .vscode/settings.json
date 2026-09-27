@@ -13,6 +13,6 @@
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMap": {
-        "java": "cd \"$workspaceRoot\"; javac -d bin (Get-Item \"$dir\\*.java\"); $pkg = (Select-String -Path \"$fullFileName\" -Pattern '^\\s*package\\s+([^;]+);').Matches.Groups[1].Value; if ($pkg) { java -cp \"bin;$dir\" \"$pkg.$fileNameWithoutExt\" } else { java -cp \"bin;$dir\" $fileNameWithoutExt }"
+        "java": "cd \"$dirWithoutTrailingSlash\" && java $fileName"
     }
 }
