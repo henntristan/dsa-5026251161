@@ -1,8 +1,5 @@
 package lw02.unguided;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -12,23 +9,9 @@ public class Main {
     public static void main(String[] args) {
         LinkedList<String[]> orders = new LinkedList<>();
 
-        InputStream inputStream = Main.class.getResourceAsStream("orders.txt");
-        if (inputStream == null) {
-            inputStream = Main.class.getResourceAsStream("/lw02/unguided/orders.txt");
-        }
-        if (inputStream == null) {
-            File file = new File("orders.txt");
-            if (!file.exists()) {
-                file = new File("src/lw02/unguided/orders.txt");
-            }
-            if (file.exists()) {
-                try {
-                    inputStream = new FileInputStream(file);
-                } catch (Exception ignored) {}
-            }
-        }
-
-        Scanner scanner = new Scanner(inputStream != null ? inputStream : System.in);
+        Scanner scanner = new Scanner(
+            Main.class.getResourceAsStream("orders.txt")
+        );
 
         while (scanner.hasNext()) {
             String[] order = new String[4];
