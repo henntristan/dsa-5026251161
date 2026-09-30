@@ -10,7 +10,6 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Read and store orders
         LinkedList<String[]> orders = new LinkedList<>();
 
         InputStream inputStream = Main.class.getResourceAsStream("orders.txt");
@@ -42,18 +41,15 @@ public class Main {
 
         scanner.close();
 
-        // 2. Create food stock data
         LinkedList<String[]> foods = new LinkedList<>();
         foods.add(new String[]{"Bakso", "2"});
         foods.add(new String[]{"Sate", "1"});
         foods.add(new String[]{"Soto", "2"});
 
-        // 3. Create drink stock data
         LinkedList<String[]> drinks = new LinkedList<>();
         drinks.add(new String[]{"EsTeh", "4"});
         drinks.add(new String[]{"EsJeruk", "2"});
 
-        // 4. Process orders using Queue (FIFO)
         Queue<String[]> queue = new LinkedList<>();
         queue.addAll(orders);
 
@@ -67,7 +63,6 @@ public class Main {
             String drink = order[2];
             String table = order[3];
 
-            // Check food availability
             String[] foodItem = null;
             boolean foodAvailable = true;
             if (!sideDish.equals("-")) {
@@ -80,7 +75,6 @@ public class Main {
                 foodAvailable = (foodItem != null && Integer.parseInt(foodItem[1]) > 0);
             }
 
-            // Check drink availability
             String[] drinkItem = null;
             boolean drinkAvailable = true;
             if (!drink.equals("-")) {
@@ -93,7 +87,6 @@ public class Main {
                 drinkAvailable = (drinkItem != null && Integer.parseInt(drinkItem[1]) > 0);
             }
 
-            // Process order if all requested items are available
             if (foodAvailable && drinkAvailable) {
                 if (foodItem != null) {
                     int stock = Integer.parseInt(foodItem[1]) - 1;
@@ -105,12 +98,10 @@ public class Main {
                 }
                 successfulOrders.add(order);
             } else {
-                // 5. Store failed orders using Stack (LIFO)
                 failed.push(order);
             }
         }
 
-        // 6. Display results
         System.out.println("=== Successfully Processed Orders ===");
         for (String[] order : successfulOrders) {
             System.out.println(order[0] + " " + order[1] + " " + order[2] + " " + order[3]);
